@@ -12,11 +12,11 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.NotificationCompat
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.lcx.watermark.Watermark
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedOutputStream
 import java.io.File
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
                     240f
                 }
             }
-            val newBitmap = Watermark.addTextWatermark(bitmap,content,textSize,true)
+            val newBitmap = addTextWatermark(bitmap,content,textSize,true)
             Glide.with(this)
                 .load(newBitmap)
                 .into(iv_pic)
