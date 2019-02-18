@@ -6,12 +6,12 @@ object Watermark {
     /**
      * 水印颜色
      */
-    var color : Int = 0
+    private var color : Int = 0
     /**
      * 水印的位置
      */
-    var x : Float = 0.0f
-    var y : Float = 0.0f
+    private var x : Float = 0.0f
+    private var y : Float = 0.0f
     /**
      *  设置水印的x位置
      */

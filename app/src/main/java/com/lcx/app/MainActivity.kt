@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.lcx.watermark.Watermark
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedOutputStream
 import java.io.File
@@ -57,8 +58,10 @@ class MainActivity : AppCompatActivity() {
             imgName = format.format(Date(System.currentTimeMillis()))+".jpg"
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                //小于7.0调用相机方式
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(File(tempFile.absolutePath, imgName)))
             } else {
+                //大于7.0调用相机方式
                 tempFile = File(tempFile.absolutePath+File.separator+"Camera")
                 var cv = ContentValues(1)
                 cv.put(MediaStore.Images.Media.DATA,tempFile.absolutePath+File.separator+imgName)
@@ -127,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                     240f
                 }
             }
-            val newBitmap = addTextWatermark(bitmap,content,textSize,true)
+            val newBitmap = Watermark.addTextWatermark(bitmap,content,textSize)
             Glide.with(this)
                 .load(newBitmap)
                 .into(iv_pic)
@@ -190,6 +193,8 @@ class MainActivity : AppCompatActivity() {
             var stream = BufferedOutputStream(FileOutputStream(path))
             isSuccess = src.compress(format, 100, stream)
             if (!src.isRecycled)src.recycle()
+            stream.flush()
+            stream.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }
