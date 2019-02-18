@@ -24,7 +24,7 @@ object PictureFileUtils {
             file.delete()
         }
         lateinit var stream : FileOutputStream
-        var b : Boolean = false
+        var b = false
         try {
             stream = FileOutputStream(file)
             b = bm.compress(format, quality, stream)
@@ -51,7 +51,7 @@ object PictureFileUtils {
         val file = File(path,name)
         if (file.exists())file.delete()
         lateinit var stream : FileOutputStream
-        var b : Boolean = false
+        var b = false
         try {
             stream = FileOutputStream(file)
             b = bm.compress(format, quality, stream)
