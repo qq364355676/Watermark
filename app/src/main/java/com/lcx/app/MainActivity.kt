@@ -131,6 +131,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             val newBitmap = Watermark.addTextWatermark(bitmap,content,textSize)
+            PictureFileUtils
             Glide.with(this)
                 .load(newBitmap)
                 .into(iv_pic)
