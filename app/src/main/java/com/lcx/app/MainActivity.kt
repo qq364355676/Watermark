@@ -131,10 +131,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             val newBitmap = Watermark.addTextWatermark(bitmap,content,textSize)
-            PictureFileUtils
-            Glide.with(this)
-                .load(newBitmap)
-                .into(iv_pic)
+            if (newBitmap != null) {
+                Glide.with(this)
+                    .load(newBitmap)
+                    .into(iv_pic)
+            }
         }else{
             Log.e(TAG,"没有获取位置信息")
         }
