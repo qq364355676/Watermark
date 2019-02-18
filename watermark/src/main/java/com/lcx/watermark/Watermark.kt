@@ -2,6 +2,10 @@ package com.lcx.watermark
 
 import android.graphics.*
 
+/**
+ * @author lcx
+ * @date 2019/02/18
+ */
 object Watermark {
     /**
      * 水印颜色
