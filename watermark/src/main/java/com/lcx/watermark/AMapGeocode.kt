@@ -21,7 +21,7 @@ object AMapGeocode {
      * @param lng 经度
      */
 
-    private fun getRegeocode(context: Context, lat: Double, lng: Double) : String{
+     fun getRegeocode(context: Context, lat: Double, lng: Double) : String{
         var addr = ""
         val geocodeSearch = GeocodeSearch(context)
         val latLonPoint = LatLonPoint(lat, lng)
