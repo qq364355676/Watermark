@@ -7,7 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
-    <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="161ac5414ace217aa3f1d70a0ce1948a"/>
+    <application>
+        <meta-data
+                android:name="com.amap.api.v2.apikey"
+                android:value="161ac5414ace217aa3f1d70a0ce1948a"/>
+    </application>
 </manifest>

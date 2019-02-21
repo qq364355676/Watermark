@@ -1,6 +1,8 @@
 package com.lcx.watermark
 
 import android.graphics.*
+import android.text.StaticLayout
+import android.text.TextPaint
 
 /**
  * @author lcx
@@ -49,15 +51,19 @@ object Watermark {
             return null
         }
         val copyBitmap = src.copy(src.config, true)
-        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        val paint = TextPaint(Paint.ANTI_ALIAS_FLAG)
         paint.textSize = textSize
         paint.color = if (color == 0) Color.RED else color
         val canvas = Canvas(copyBitmap)
         val rect = Rect()
         paint.getTextBounds(content,0,content.length,rect)
+        val layou = StaticLayout.Builder
+            .obtain(content,0,content.length,paint,src.width)
+            .build()
         x = if (x == 0f) src.width * 0.05f else x
         y = if (y == 0f) src.height * 0.7f else y
-        canvas.drawText(content,x,y,paint)
+        layou.draw(canvas)
+//        canvas.drawText(content,x,y,paint)
         if (!src.isRecycled) {
             src.recycle()
         }
