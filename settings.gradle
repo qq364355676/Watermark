@@ -1,1 +1,1 @@
-include ':app', ':watermark'
+include ':app', ':watermark', ':skiplibrary', ':mylibrary'

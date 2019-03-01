@@ -1,16 +1,5 @@
 package com.lcx.watermark
 
-import android.content.Context
-import com.amap.api.services.geocoder.GeocodeResult
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import com.amap.api.services.core.AMapException
-import com.amap.api.services.geocoder.RegeocodeResult
-import com.amap.api.services.geocoder.GeocodeSearch
-import com.amap.api.services.geocoder.RegeocodeQuery
-import com.amap.api.services.core.LatLonPoint
-
-
-
 object AMapGeocode {
 
     /**
@@ -21,13 +10,13 @@ object AMapGeocode {
      * @param lng 经度
      */
 
-     fun getRegeocode(context: Context, lat: Double, lng: Double) : String?{
-        var addr = ""
-        val geocodeSearch = GeocodeSearch(context)
-        val latLonPoint = LatLonPoint(lat, lng)
-        val query = RegeocodeQuery(latLonPoint, 10f, GeocodeSearch.GPS)
-        val regeocodeAddress = geocodeSearch.getFromLocation(query)
-        return regeocodeAddress.formatAddress
+//     fun getRegeocode(context: Context, lat: Double, lng: Double) : String?{
+//        var addr = ""
+//        val geocodeSearch = GeocodeSearch(context)
+//        val latLonPoint = LatLonPoint(lat, lng)
+//        val query = RegeocodeQuery(latLonPoint, 10f, GeocodeSearch.GPS)
+//        val regeocodeAddress = geocodeSearch.getFromLocation(query)
+//        return regeocodeAddress.formatAddress
 //        geocodeSearch.getFromLocationAsyn(query)
 //        geocodeSearch.setOnGeocodeSearchListener(object : GeocodeSearch.OnGeocodeSearchListener {
 //            /**
@@ -54,5 +43,5 @@ object AMapGeocode {
 //             */
 //            override fun onGeocodeSearched(geocodeResult: GeocodeResult, i: Int) {}
 //        })
-    }
+//    }
 }
